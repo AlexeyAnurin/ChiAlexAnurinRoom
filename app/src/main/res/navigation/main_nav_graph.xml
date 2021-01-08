@@ -12,9 +12,24 @@
         <action
             android:id="@+id/action_displayPictureFragment_to_cameraDialogFragment"
             app:destination="@id/addNoteFragment" />
+        <action
+            android:id="@+id/action_noteListFragment_to_channelFragment"
+            app:destination="@id/channelFragment" />
     </fragment>
     <fragment
         android:id="@+id/addNoteFragment"
         android:name="ru.alexanurin.chialexanurinroom.AddNoteFragment"
         tool:layout="@layout/fragment_add_note"/>
+    <fragment
+        android:id="@+id/channelFragment"
+        android:name="ru.alexanurin.chialexanurinroom.channel.ChannelFragment"
+        android:label="ChannelFragment" >
+        <action
+            android:id="@+id/action_channelFragment_to_channelDetailsFragment"
+            app:destination="@id/channelDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/channelDetailsFragment"
+        android:name="ru.alexanurin.chialexanurinroom.channel.ChannelDetailsFragment"
+        android:label="ChannelDetailsFragment" />
 </navigation>

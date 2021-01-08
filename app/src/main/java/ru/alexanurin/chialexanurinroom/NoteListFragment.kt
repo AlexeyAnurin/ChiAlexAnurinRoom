@@ -17,6 +17,7 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.get
 import ru.alexanurin.chialexanurinroom.database.Notes
 import ru.alexanurin.chialexanurinroom.databinding.FragmentNoteListBinding
+import ru.alexanurin.chialexanurinroom.rest.Channel
 
 
 @KoinApiExtension
@@ -29,6 +30,7 @@ class NoteListFragment : Fragment(), KoinComponent {
     private lateinit var binding: FragmentNoteListBinding
     //  Экземпляр адаптера c реализацией listener, переданного в качестве аргумента.
     private val noteAdapter = NoteAdapter { noteViewModel.deleteNote(it) }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,6 +45,7 @@ class NoteListFragment : Fragment(), KoinComponent {
         //  Присвоить адаптер ресайклу.
         binding.rvNotes.adapter = noteAdapter
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,6 +58,10 @@ class NoteListFragment : Fragment(), KoinComponent {
         //  Навигация через navGraph.
         binding.addNoteFab.setOnClickListener {
             navigateToAddNote()
+        }
+
+        binding.btnChannels.setOnClickListener {
+            navigateToChannelsList()
         }
 
         //  Livedata. Добавление заметок в список.
@@ -70,6 +77,10 @@ class NoteListFragment : Fragment(), KoinComponent {
 
     private fun navigateToAddNote() {
         findNavController().navigate(R.id.addNoteFragment)
+    }
+
+    private fun navigateToChannelsList(){
+        findNavController().navigate(R.id.channelFragment)
     }
 
     companion object {

@@ -10,6 +10,9 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.get
 import ru.alexanurin.chialexanurinroom.NoteListFragment.Companion.DELETED_NOTES
 import ru.alexanurin.chialexanurinroom.database.Notes
+import ru.alexanurin.chialexanurinroom.rest.Channel
+import ru.alexanurin.chialexanurinroom.rest.ChannelsRepository
+
 
 @KoinApiExtension
 class NoteViewModel(private val noteRepository: NoteRepository) : ViewModel(), KoinComponent {
