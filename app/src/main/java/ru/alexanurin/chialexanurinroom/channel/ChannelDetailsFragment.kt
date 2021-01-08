@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -49,13 +50,12 @@ class ChannelDetailsFragment : Fragment() {
         println("channelDetailsId: $channelDetailsId")
 
         channelDetailsViewModel.getChannelDetails()
-        // println("channelDetailsViewModel: ${channelDetailsViewModel.getChannelDetails()}")
 
         channelDetailsViewModel.getChannelDetailsEvent.observe(viewLifecycleOwner, Observer {
-
             channelDetailsAdapter.setItems(it.channelData.video.data)
+            binding.pbChannelDetailsList.isVisible = false
         })
 
+        binding.pbChannelDetailsList.isVisible = true
     }
-
 }

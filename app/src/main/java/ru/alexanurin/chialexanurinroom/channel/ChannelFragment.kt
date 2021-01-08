@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -56,6 +57,10 @@ class ChannelFragment : Fragment() {
         channelViewModel.getChannelsEvent.observe(viewLifecycleOwner, Observer {
             println("List<Channels>: $it")
             channelAdapter.setItems(it)
+            //  progress bar.
+            binding.pbChannelList.isVisible = false
         })
+
+        binding.pbChannelList.isVisible = true
     }
 }
