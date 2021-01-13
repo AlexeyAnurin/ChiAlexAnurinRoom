@@ -40,16 +40,16 @@ class LoginFragment : Fragment() {
         // 2 text fields are not empty (if not - show toast wich field is empty or filled incorrectly),
         // user exist - answer from server.
         binding.btnLogIn.setOnClickListener {
-            //  if(binding.etLogInUserEmail.text.toString().trim().isNotEmpty() && binding.etLogInUserPassword.text.toString().trim().isNotEmpty()){
-            val loginUser = LoginUserModel(
-            //   loginUser.email = binding.etLogInUserEmail.text.toString()
-            email = "Alex2@gmail.com",
-            //   loginUser.password = binding.etLogInUserPassword.text.toString()
-            password = "Alex2Alex2"
-            )
-            loginViewModel.loginUser(loginUser)
-            it.hideKeyBoard()
-            //  }
+            if (binding.etLogInUserEmail.text.toString().trim()
+                    .isNotEmpty() && binding.etLogInUserPassword.text.toString().trim().isNotEmpty()
+            ) {
+                val loginUser = LoginUserModel(
+                    email = binding.etLogInUserEmail.text.toString(),
+                    password = binding.etLogInUserPassword.text.toString()
+                )
+                loginViewModel.loginUser(loginUser)
+                it.hideKeyBoard()
+            }
         }
 
         //  navigate to CreateNewUserFragment.

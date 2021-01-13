@@ -44,10 +44,12 @@ class CreateNewUserFragment : Fragment() {
             it.hideKeyBoard()
         }
 
+        //  тост с кодом ошибки.
         createNewUserViewModel.errorEvent.observe(viewLifecycleOwner, Observer {
             it?.let { Toast.makeText(requireActivity(), it, Toast.LENGTH_LONG).show() }
         })
 
+        //  навигация к списку каналов на ChannelFragment.
         createNewUserViewModel.toChannelScreenEvent.observe(viewLifecycleOwner, Observer {
             findNavController().navigate(R.id.action_createNewUserFragment_to_channelFragment)
         })

@@ -11,7 +11,7 @@ interface ChannelApi {
     suspend fun getChannels(
     ): ChannelDto
 
-    //  Запрос первых пяти видео с подробной информацией из выбранного канала.
+    //  Запрос всех видео с подробной информацией из выбранного канала.
     @GET("api-mobile/search")
     suspend fun getChannelDetails(
        // @Query("limit") limit: Int = 5,

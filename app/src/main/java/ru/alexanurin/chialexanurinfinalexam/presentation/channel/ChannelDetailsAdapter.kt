@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.alexanurin.chialexanurinfinalexam.databinding.ChannelDetailsItemBinding
 import ru.alexanurin.chialexanurinfinalexam.data.model.Data
 
+//  Адаптер для отображения подробной информации о выбранном канале.
 class ChannelDetailsAdapter() :
     RecyclerView.Adapter<ChannelDetailsAdapter.ChannelDetailsViewHolder>() {
 
@@ -29,7 +30,6 @@ class ChannelDetailsAdapter() :
     }
 
     override fun onBindViewHolder(holder: ChannelDetailsViewHolder, position: Int) {
-        //  Каждому экземпляру ViewHolder передаются не только данные, но и listener.
         holder.bind(channelDetailsItems[position])
     }
 

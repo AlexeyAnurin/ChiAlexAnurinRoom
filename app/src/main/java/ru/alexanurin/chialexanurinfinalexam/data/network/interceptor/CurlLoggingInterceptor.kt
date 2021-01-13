@@ -7,6 +7,7 @@ import okio.Buffer
 import java.io.IOException
 import java.nio.charset.Charset
 
+//  interceptor для curl чтобы увидеть что токен добавляется к запросам.
 class CurlLoggingInterceptor(
     private val logger: Logger = Logger.DEFAULT
 ) : Interceptor {

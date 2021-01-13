@@ -17,4 +17,5 @@ fun ChannelEntity.toUI():ChannelModel{
     return ChannelModel(channelId = channelId, title = title)
 }
 
+//  функция-расширение
 fun List<ChannelEntity>.toUI() = map { it.toUI() }

@@ -12,7 +12,7 @@ interface AuthApi {
         @Body newUser: NewUser
     ): NewUserDTO
 
-    //  вход в приложение
+    //  вход в приложение.
     @POST("api-mobile/user/login")
     suspend fun loginUser(
         @Body loginUser: LoginUser
@@ -24,6 +24,7 @@ interface AuthApi {
         @Query("id") id: Int
     ): UserInfoDTO
 
+    //  Выход из приложения.
     @POST("api-mobile/user/logout")
     suspend fun logOut(
         @Body userLogOut: UserLogOut

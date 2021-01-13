@@ -3,7 +3,6 @@ package ru.alexanurin.chialexanurinfinalexam.data.model
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
-//   list or first 5 videos on next screen Show title, description and likes count.
 @JsonClass(generateAdapter = true)
 data class ChannelDetailsDto(
     @Json(name = "status")

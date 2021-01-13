@@ -31,11 +31,12 @@ import ru.alexanurin.chialexanurinfinalexam.presentation.userprofile.UserProfile
 
 val commonModule = module {
 
-        //
+        //  перехватчик curl чтобы увидеть подставленный токен в запросе
         factory { CurlLoggingInterceptor(get()) }
 
-        //  для токена
+        //  Подставляем токен в header запросов
         factory { HeadersInterceptor(get()) } bind Interceptor::class
+
 
         single<HttpLoggingInterceptor.Logger> { HttpLogger() }
 
@@ -50,9 +51,7 @@ val commonModule = module {
         }
         single { get<AppDatabase>().getChannelsDao() }
 
-
-
-        //  Репозитории
+        //  Репозитории.
         single { ChannelsRepository(get(), get()) }
         single { AuthRepository(get(), get(), get()) }
 
@@ -63,20 +62,22 @@ val commonModule = module {
                 Context.MODE_PRIVATE
             )
         }
+
+        //  Либа чтобы доставать device token.
         single {
             FingerprinterFactory
                 .getInstance(androidApplication(), Configuration(version = 1))
         }
 
-        //  ViewModel channel
+        //  ViewModel channel.
         viewModel { ChannelViewModel(get()) }
-        //  ViewModels login
+        //  ViewModels login.
         viewModel { LoginViewModel(get()) }
         viewModel { CreateNewUserViewModel(get()) }
         viewModel { (channelDetailsId: Int) -> ChannelDetailsViewModel(channelDetailsId, get()) }
-        //  ViewModel splash
+        //  ViewModel splash.
         viewModel { SplashViewModel(get()) }
-        //  ViewModel UserInfo
+        //  ViewModel UserProfile.
         viewModel { UserProfileViewModel(get()) }
     }
 

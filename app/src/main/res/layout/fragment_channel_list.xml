@@ -20,7 +20,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbarLayout" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/pbChannelList"
+        android:id="@+id/pbLoading"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:visibility="invisible"

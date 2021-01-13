@@ -9,6 +9,7 @@ class CreateNewUserViewModel(private val authRepository: AuthRepository) : BaseV
 
     val toChannelScreenEvent = SingleLiveEvent<Unit>()
 
+    //  Запрос на создание нового пользователя и вызов события для перехода на ChannelFragment.
     fun createNewUser(newUser: UserModel) {
         launchErrorJob {
             authRepository.createNewUser(newUser)

@@ -10,7 +10,7 @@ class LoginViewModel(private val authRepository: AuthRepository) : BaseViewModel
 
     val toChannelScreenEvent = SingleLiveEvent<Unit>()
 
-    //  когда токен попадёт в pref, то сработает SingleLiveEvent
+    //  когда токен попадёт в pref, то событие SingleLiveEvent приведёт к переходу на ChannelFragment.
     fun loginUser(loginUser: LoginUserModel) {
         launchErrorJob {
             authRepository.loginUser(loginUser)

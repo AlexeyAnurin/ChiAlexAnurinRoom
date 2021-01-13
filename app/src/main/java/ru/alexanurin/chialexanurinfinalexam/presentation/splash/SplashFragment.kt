@@ -10,7 +10,7 @@ import androidx.navigation.fragment.findNavController
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.alexanurin.chialexanurinfinalexam.R
 
-
+//
 class SplashFragment : Fragment() {
 
     private val splashViewModel by viewModel<SplashViewModel>() //  DI

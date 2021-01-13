@@ -8,7 +8,6 @@ import ru.alexanurin.chialexanurinfinalexam.util.SingleLiveEvent
 
 class UserProfileViewModel(private val authRepository: AuthRepository) : BaseViewModel() {
 
-
     val getUserInfoEvent = MutableLiveData<UserInfoDTO>()
     val toLoginScreenEvent = SingleLiveEvent<Unit>()
 
@@ -20,10 +19,8 @@ class UserProfileViewModel(private val authRepository: AuthRepository) : BaseVie
     }
 
     fun logOut() {
-
         launchErrorJob {
             authRepository.logOut()
-           // authRepository.getToken().edit().putString(AuthRepository.TOKEN,"").apply()
             toLoginScreenEvent.call()
         }
     }

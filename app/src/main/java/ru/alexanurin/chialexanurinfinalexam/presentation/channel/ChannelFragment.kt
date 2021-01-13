@@ -39,26 +39,26 @@ class ChannelFragment : Fragment() {
         binding.rvChannel.addItemDecoration(
             DividerItemDecoration(context, LinearLayoutManager.VERTICAL)
         )
-        //  Присвоить адаптер ресайклу.
+        //  Присвоить адаптер recyclerView.
         binding.rvChannel.adapter = channelAdapter
-        binding.toolbarLayout.menu.text = "Profile"
+        binding.toolbarLayout.menu.text = getString(R.string.profile)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //  Livedata. Добавление заметок в список.
+        //  Обновить данные адаптера на ChannelFragment.
         channelViewModel.getChannelsEvent.observe(viewLifecycleOwner, Observer {
-            println("List<Channels>: $it")
             channelAdapter.setItems(it)
         })
 
         //  progress bar. данные с серва
         channelViewModel.loadingEvent.observe(viewLifecycleOwner, {
-            binding.pbChannelList.isVisible = it
+            binding.pbLoading.isVisible = it
         })
 
+        //  Навигация к профилю пользователя.
         binding.toolbarLayout.menu.setOnClickListener {
             findNavController().navigate(R.id.action_channelFragment_to_userProfileFragment)
         }

@@ -12,9 +12,12 @@ class ChannelDetailsViewModel(
 
     val getChannelDetailsEvent = MutableLiveData<ChannelDetailsDto>()
 
+
     init {
         launchErrorJob {
+            //  При создании ChannelDetailsViewModel отправить запрос на получение подробной информации о выбранном канале по его Id.
             val result = channelsRepository.getChannelDetails(channelDetailsId)
+            //  Поместить ответ от серва в контейнер LiveData и отобразить на UI ChannelDetailsFragment.
             getChannelDetailsEvent.postValue(result)
         }
     }

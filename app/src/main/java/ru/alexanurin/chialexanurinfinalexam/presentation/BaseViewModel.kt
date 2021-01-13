@@ -7,6 +7,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
+//  Базовая ViewModel для обработки возможных ошибок
 abstract class BaseViewModel : ViewModel() {
 
     open val errorEvent = MutableLiveData<String?>()
@@ -20,18 +21,18 @@ abstract class BaseViewModel : ViewModel() {
         }
     }
 
-    //  protected доступ наследников
+    //  Создание обработчика ошибок CoroutineExceptionHandler чтобы прервать распространение возможных ошибок.
     protected fun launchErrorJob(
         onError: ((Throwable) -> Unit)? = null,
         jobToDo: suspend () -> Unit
     ): Job {
         return viewModelScope.launch(createExceptionHandler(onError)) {
             try {
-                loadingEvent.postValue(true)
+                loadingEvent.postValue(true) // старт анимации при запросе.
                 errorEvent.postValue(null)
                 jobToDo.invoke()
             } finally {
-                loadingEvent.postValue(false)
+                loadingEvent.postValue(false) // остановка анимации при получении ответа.
             }
         }
     }

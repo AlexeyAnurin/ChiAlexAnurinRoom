@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.alexanurin.chialexanurinfinalexam.databinding.ChannelItemBinding
 import ru.alexanurin.chialexanurinfinalexam.data.model.ChannelModel
 
-//  Адаптер принимает лямбду listener для удаления элемента по клику.
+//  Адаптер принимает лямбду listener для отправки запроса о получении информации о канале по клику.
 class ChannelAdapter(private val listener: (Int) -> Unit) :
     RecyclerView.Adapter<ChannelAdapter.ChannelViewHolder>() {
 

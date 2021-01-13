@@ -5,6 +5,7 @@ import okhttp3.Interceptor
 import okhttp3.Response
 import org.koin.core.component.KoinApiExtension
 
+//  Добавить токен, полученный при авторизации, к запросам.
 @KoinApiExtension
 class HeadersInterceptor(private val sharedPref: SharedPreferences) : Interceptor {
 

@@ -34,11 +34,10 @@ class UserProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.toolbarLayout.menu.setOnClickListener {
-
             userProfileViewModel.logOut()
         }
 
-        binding.toolbarLayout.menu.text = "Logout"
+        binding.toolbarLayout.menu.text = getString(R.string.auth_logout)
 
         userProfileViewModel.getUserInfoEvent.observe(viewLifecycleOwner, Observer {
             binding.tvUserName.text = it.userInfo.user.userName

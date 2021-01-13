@@ -16,21 +16,23 @@ class ChannelsRepository(
     private val channelApi: ChannelApi,
     private val channelsDao: ChannelsDao
 ) {
-    //  список каналов. Получаем напрямую с серва.
+    //  Получение списка каналов.
     suspend fun getChannels() {
         withContext(Dispatchers.IO) {
+            //  Получаем напрямую с серва.
             channelApi.getChannels()
+            //  Помещаем список каналов в БД.
             channelsDao.insertChannels(channelApi.getChannels().dataList.map { it.toEntity() })
         }
     }
 
-    //  список каналов. из базы
+    //  Список каналов из базы, передаются как Flow.
     fun getChannelsFromBD(): Flow<List<ChannelModel>> {
         return channelsDao.getChannels().map { it.toUI() }
     }
 
 
-    //  Подробная информация о каналах.
+    //  Получить подробную информация о каналах.
     suspend fun getChannelDetails(channelId: Int): ChannelDetailsDto {
         return channelApi.getChannelDetails(channelId = channelId)
     }

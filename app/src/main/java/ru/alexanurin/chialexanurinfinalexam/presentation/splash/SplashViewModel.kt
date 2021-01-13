@@ -12,6 +12,8 @@ class SplashViewModel(private val authRepository: AuthRepository) : ViewModel() 
     val toChannelScreenEvent = SingleLiveEvent<Unit>()
     val toLogInScreenEvent = SingleLiveEvent<Unit>()
 
+    //  При создании SplashViewModel проверить наличие сохранённого токена, и в случае наличия,
+    // вызвать событие для навигации на ChannelFragment, иначе на LoginFragment.
     init {
         viewModelScope.launch {
             delay(2000)
