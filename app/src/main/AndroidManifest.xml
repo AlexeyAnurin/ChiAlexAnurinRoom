@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ru.alexanurin.chialexanurinroom">
+    package="ru.alexanurin.chialexanurinfinalexam">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,8 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ChiAlexAnurinRoom"
-        android:name=".ChiAlexAnurinRoomApp">
-        <activity android:name=".MainActivity">
+        android:name="ru.alexanurin.chialexanurinfinalexam.ChiAlexAnurinRoomApp">
+        <activity android:name="ru.alexanurin.chialexanurinfinalexam.presentation.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

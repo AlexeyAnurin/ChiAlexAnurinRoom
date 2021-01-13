@@ -92,6 +92,8 @@ dependencies {
     // Koin AndroidX Experimental features
     implementation "org.koin:koin-androidx-ext:$koin_version"
 
+    implementation "com.github.fingerprintjs:fingerprint-android:1.0.2"
+
 
 
     //  Room components

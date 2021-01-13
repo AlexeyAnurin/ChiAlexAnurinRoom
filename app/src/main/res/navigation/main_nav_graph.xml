@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/noteListFragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/noteListFragment"
-        android:name="ru.alexanurin.chialexanurinroom.NoteListFragment"
+        android:name="ru.alexanurin.chialexanurinfinalexam.presentation.notes.NoteListFragment"
         tool:layout="@layout/fragment_note_list">
         <action
             android:id="@+id/action_displayPictureFragment_to_cameraDialogFragment"
@@ -18,18 +18,83 @@
     </fragment>
     <fragment
         android:id="@+id/addNoteFragment"
-        android:name="ru.alexanurin.chialexanurinroom.AddNoteFragment"
-        tool:layout="@layout/fragment_add_note"/>
+        android:name="ru.alexanurin.chialexanurinfinalexam.presentation.notes.AddNoteFragment"
+        tool:layout="@layout/fragment_add_note" />
     <fragment
         android:id="@+id/channelFragment"
-        android:name="ru.alexanurin.chialexanurinroom.channel.ChannelFragment"
-        android:label="ChannelFragment" >
+        android:name="ru.alexanurin.chialexanurinfinalexam.presentation.channel.ChannelFragment"
+        android:label="ChannelFragment"
+        tool:layout="@layout/fragment_channel_list">
         <action
             android:id="@+id/action_channelFragment_to_channelDetailsFragment"
             app:destination="@id/channelDetailsFragment" />
+        <action
+            android:id="@+id/action_channelFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment"
+            app:launchSingleTop="false"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/channelDetailsFragment"
-        android:name="ru.alexanurin.chialexanurinroom.channel.ChannelDetailsFragment"
-        android:label="ChannelDetailsFragment" />
+        android:name="ru.alexanurin.chialexanurinfinalexam.presentation.channel.ChannelDetailsFragment"
+        android:label="ChannelDetailsFragment"
+        tool:layout="@layout/fragment_channel_details_list" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="ru.alexanurin.chialexanurinfinalexam.presentation.login.LoginFragment"
+        android:label="LoginFragment"
+        tool:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_createUserFragment"
+            app:destination="@id/createNewUserFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_channelFragment"
+            app:destination="@id/channelFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/createNewUserFragment"
+        android:name="ru.alexanurin.chialexanurinfinalexam.presentation.login.CreateNewUserFragment"
+        android:label="CreateUserFragment"
+        tool:layout="@layout/fragment_create_new_user"
+        >
+        <action
+            android:id="@+id/action_createNewUserFragment_to_channelFragment"
+            app:destination="@id/channelFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="ru.alexanurin.chialexanurinfinalexam.presentation.splash.SplashFragment"
+        android:label="SplashFragment"
+        tool:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_channelFragment"
+            app:destination="@id/channelFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="ru.alexanurin.chialexanurinfinalexam.presentation.userprofile.UserProfileFragment"
+        android:label="UserProfileFragment"
+        tool:layout="@layout/fragment_user_profile">
+        <action
+            android:id="@+id/action_userProfileFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/channelFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
