@@ -6,21 +6,6 @@
     app:startDestination="@id/splashFragment">
 
     <fragment
-        android:id="@+id/noteListFragment"
-        android:name="ru.alexanurin.chialexanurinfinalexam.presentation.notes.NoteListFragment"
-        tool:layout="@layout/fragment_note_list">
-        <action
-            android:id="@+id/action_displayPictureFragment_to_cameraDialogFragment"
-            app:destination="@id/addNoteFragment" />
-        <action
-            android:id="@+id/action_noteListFragment_to_channelFragment"
-            app:destination="@id/channelFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/addNoteFragment"
-        android:name="ru.alexanurin.chialexanurinfinalexam.presentation.notes.AddNoteFragment"
-        tool:layout="@layout/fragment_add_note" />
-    <fragment
         android:id="@+id/channelFragment"
         android:name="ru.alexanurin.chialexanurinfinalexam.presentation.channel.ChannelFragment"
         android:label="ChannelFragment"

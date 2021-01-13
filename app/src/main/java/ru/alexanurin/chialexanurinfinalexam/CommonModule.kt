@@ -25,11 +25,8 @@ import ru.alexanurin.chialexanurinfinalexam.data.network.interceptor.CurlLogging
 import ru.alexanurin.chialexanurinfinalexam.data.network.interceptor.HeadersInterceptor
 import ru.alexanurin.chialexanurinfinalexam.data.network.interceptor.HttpLogger
 import ru.alexanurin.chialexanurinfinalexam.data.repo.ChannelsRepository
-import ru.alexanurin.chialexanurinfinalexam.presentation.notes.AddNoteViewModel
-import ru.alexanurin.chialexanurinfinalexam.presentation.notes.NoteViewModel
 import ru.alexanurin.chialexanurinfinalexam.data.repo.AuthRepository
 import ru.alexanurin.chialexanurinfinalexam.presentation.splash.SplashViewModel
-import ru.alexanurin.chialexanurinfinalexam.data.repo.NoteRepository
 import ru.alexanurin.chialexanurinfinalexam.presentation.userprofile.UserProfileViewModel
 
 val commonModule = module {
@@ -51,13 +48,11 @@ val commonModule = module {
         single {
             Room.databaseBuilder(androidContext(), AppDatabase::class.java, "app-database").build()
         }
-        single { get<AppDatabase>().getNotesDao() }
         single { get<AppDatabase>().getChannelsDao() }
 
 
 
         //  Репозитории
-        single { NoteRepository(get()) }
         single { ChannelsRepository(get(), get()) }
         single { AuthRepository(get(), get(), get()) }
 
@@ -72,9 +67,7 @@ val commonModule = module {
             FingerprinterFactory
                 .getInstance(androidApplication(), Configuration(version = 1))
         }
-        //  ViewModels note
-        viewModel { NoteViewModel(get()) }
-        viewModel { AddNoteViewModel(get(), get()) }
+
         //  ViewModel channel
         viewModel { ChannelViewModel(get()) }
         //  ViewModels login

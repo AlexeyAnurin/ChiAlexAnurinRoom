@@ -26,9 +26,7 @@ import androidx.room.*
 
 //  Создание БД и объявление абстр. метода для получения объекта, имплементирующего Dao-интерфейс
 // с методами для доступа к БД.
-@Database(entities = [Notes::class, ChannelEntity::class], version = 5)
+@Database(entities = [ChannelEntity::class], version = 6)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun getNotesDao(): NotesDao
-
     abstract fun getChannelsDao(): ChannelsDao
 }
